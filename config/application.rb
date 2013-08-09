@@ -36,12 +36,14 @@ end
 # Configure Mongoid
 Mongoid.load!(Nyara.config.project_path('config/database.yml'), Nyara.config.env)
 
-Thread.new do
-  `bundle exec sass --scss --watch app/assets/css:public/css --cache-location tmp/cache/sass`
-end
+if Nyara.development?
+  Thread.new do
+    `bundle exec sass --scss --watch app/assets/css:public/css --cache-location tmp/cache/sass`
+  end
 
-Thread.new do
-  `bundle exec coffee -w -c -o public/js app/assets/js`
+  Thread.new do
+    `bundle exec coffee -w -c -o public/js app/assets/js`
+  end
 end
 
 Nyara.load_app
