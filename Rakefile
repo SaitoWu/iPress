@@ -12,7 +12,7 @@ namespace :assets do
     `bundle exec sass --cache-location tmp/cache/sass --update app/assets/css:public/css -t compressed -f`
     puts " [Done]"
     print "Assets js files in compressing..."
-    `bundle exec coffee -j app/assets/js/*.js -c -o public/js app/assets/js `
+    `bundle exec coffee -c -b -o public/js app/assets/js `
     puts " [Done]"
   end
 end

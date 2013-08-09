@@ -42,7 +42,7 @@ if Nyara.development?
   end
 
   Thread.new do
-    `bundle exec coffee -w -c -o public/js app/assets/js`
+    `bundle exec coffee -w -b -c -o public/js app/assets/js`
   end
 end
 
