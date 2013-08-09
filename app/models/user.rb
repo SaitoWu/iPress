@@ -10,6 +10,8 @@ class User
   validates_uniqueness_of :login, :email
   validates_presence_of :login, :email, :password
   
+  has_many :posts
+  
   before_create :encode_password
   def encode_password
     self.password = Digest::MD5.hexdigest(self.password)

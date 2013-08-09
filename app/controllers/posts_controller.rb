@@ -16,8 +16,9 @@ class PostsController < ApplicationController
   end
   
   meta '#create'
-  post '/' do
+  post '/create' do
     @post = Post.new(params[:post])
+    @post.user_id = current_user.id
     if @post.save
       success "Post created."
       redirect_to 'posts#show', @post.id
@@ -27,13 +28,19 @@ class PostsController < ApplicationController
   end
   
   meta '#edit'
-  get '/%u/edit' do
+  get '/%u/edit' do |id|
     @post = Post.find(id)
     render 'posts/edit'
   end
   
   meta '#update'
-  put '/%u' do |id|
+  post '/%u/update' do |id|
     @post = Post.find(id)
+    if @post.update_attributes(params[:post])
+      success "Post updated."
+      redirect_to 'posts#show', @post.id
+    else
+      render "posts/edit"
+    end
   end
 end
