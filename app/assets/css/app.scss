@@ -2,6 +2,11 @@ body {
   padding-top:70px;
 }
 
+.navbar-fixed-top {
+  .navbar-btn {
+    margin-top: 13px;
+  }
+}
 .container { max-width:700px; }
 
 .qeditor_preview { height:500px; }

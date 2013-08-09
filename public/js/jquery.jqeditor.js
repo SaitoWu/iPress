@@ -16,14 +16,14 @@
  *
  */
 QEDITOR_TOOLBAR_HTML = '\<div class="qeditor_toolbar"> \
-  <a href="#" onclick="return QEditor.action(this,\'bold\');" title="Bold"><span class="glyphicon glyphicon-bold"></span></a> \
-  <a href="#" onclick="return QEditor.action(this,\'italic\');" title="Italic"><span class="glyphicon glyphicon-italic"></span></a> \
-  <a href="#" onclick="return QEditor.action(this,\'underline\');" title="Underline"><u>U</u></a> \
-  <a href="#" class="qeditor_glast" onclick="return QEditor.action(this,\'strikethrough\');" title="StrikeThrough"><strike>S</strike></a>		 \
-  <a href="#" onclick="return QEditor.action(this,\'formatBlock\',\'address\');">Q</a> \
-  <a href="#" onclick="return QEditor.action(this,\'insertorderedlist\');"><span class="glyphicon glyphicon-list"></span></a> \
-  <a href="#" class="qeditor_glast" onclick="return QEditor.action(this,\'insertunorderedlist\');"><span class="glyphicon glyphicon-list"></span></a> \
-  <a href="#" class="qeditor_glast" style="display:none;" onclick="return QEditor.action(this,\'insertimage\',prompt(\'Image URL\'));"><span class="glyphicon glyphicon-picture"></span></a> \
+  <a href="#" onclick="return QEditor.action(this,\'bold\');" title="Bold"><span class="icon-bold"></span></a> \
+  <a href="#" onclick="return QEditor.action(this,\'italic\');" title="Italic"><span class="icon-italic"></span></a> \
+  <a href="#" onclick="return QEditor.action(this,\'underline\');" title="Underline"><span class="icon-underline"></span></a> \
+  <a href="#" onclick="return QEditor.action(this,\'strikethrough\');" title="StrikeThrough"><span class="icon-strikethrough"></span></a>		 \
+  <a href="#" onclick="return QEditor.action(this,\'formatBlock\',\'address\');"><span class="icon-quote-left"></span></a> \
+  <a href="#" onclick="return QEditor.action(this,\'insertorderedlist\');"><span class="icon-list-ol"></span></a> \
+  <a href="#" onclick="return QEditor.action(this,\'insertunorderedlist\');"><span class="icon-list-ul"></span></a> \
+  <a href="#" onclick="return QEditor.action(this,\'insertimage\',prompt(\'Image URL\'));"><span class="icon-picture"></span></a> \
 </div>';
 
 QEDITOR_ALLOW_TAGS_ON_PASTE = "div,p,ul,ol,li,hr,br,b,strong,i,em,img,h2,h3,h4,h5,h6,h7"

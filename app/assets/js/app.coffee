@@ -1,3 +1,3 @@
 window.App =
-  alert ->
+  alert : ->
     alert("Alert 1")
