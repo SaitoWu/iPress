@@ -38,11 +38,17 @@ class AccountController < ApplicationController
     end
     
     if @user.is_valid_password?(params[:password])
-      session[:user_id] = @user.id
+      save_login(@user)
       success "Login successed."
       redirect_to "welcome#index"      
     else
       render "account/login"
     end
+  end
+  
+  meta '#logout'
+  post '/logout' do
+    clear_login
+    redirect_to 'welcome#index'
   end
 end

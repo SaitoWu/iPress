@@ -1,19 +1,19 @@
-<form class="form-horizontal col-lg-6" action="<%= path_to "account#session" %>" method="POST">
+<form class="form-horizontal col-lg-8" action="<%= path_to "account#session" %>" method="POST">
   <%== partial "shared/_errors", locals: { target: @user } %>
   <div class="form-group">
-    <label class="col-lg-2 control-label">Email</label>
-    <div class="col-lg-10">
+    <label class="col-lg-3 control-label">Email</label>
+    <div class="col-lg-9">
       <input type="text" class="form-control" name="email" value="<%= params[:email] %>" placeholder="your@email.com" />
     </div>
   </div>
   <div class="form-group">
-    <label class="col-lg-2 control-label">Password</label>
-    <div class="col-lg-10">
+    <label class="col-lg-3 control-label">Password</label>
+    <div class="col-lg-9">
       <input type="password" class="form-control" name="password" value="<%= params[:password] %>" placeholder="********" />
     </div>
   </div>
   <div class="form-group">
-    <div class="col-lg-offset-2 col-lg-10">
+    <div class="col-lg-offset-3 col-lg-9">
       <button type="submit" class="btn btn-primary">Login</button>
     </div>
   </div>

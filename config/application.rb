@@ -21,6 +21,7 @@ configure do
   map '/', 'welcome'
   map '/account', 'account'
   map '/posts', 'posts'
+  # map '/users', 'users'
 
   # Application loading order
   set :app_files, %w|

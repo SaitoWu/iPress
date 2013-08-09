@@ -1,8 +1,8 @@
 body {
-  padding-top: 70px; }
+  padding-top: 80px; }
 
 .navbar-fixed-top .navbar-btn {
-  margin-top: 13px; }
+  margin-top: 10px; }
 
 .container {
   max-width: 700px; }
@@ -14,6 +14,8 @@ body {
   text-align: center;
   border-top: 1px solid #e5e5e5; }
 
+/* Post list */
+/* Post Page */
 .post-page header {
   font-size: 52px;
   line-height: 1;
@@ -25,6 +27,11 @@ body {
   .post-page .post-body p,
   .qeditor_preview p {
     margin-bottom: 20px; }
+  .post-page .post-body hr,
+  .qeditor_preview hr {
+    width: 40%;
+    border-top: 3px solid #eee;
+    margin: 20px auto; }
   .post-page .post-body pre,
   .qeditor_preview pre {
     border: 0;
