@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   meta '#index'
   get '/' do
+    render "posts/index"
   end
   
   meta '#show'
