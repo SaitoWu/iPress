@@ -14,7 +14,7 @@ class AccountController < ApplicationController
   post "/create" do
     @user = User.new(params)
     if @user.save
-      success "Login successed."
+      success "Signup successed."
       redirect_to "account#login"
     else
       render "account/new"
