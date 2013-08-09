@@ -18,6 +18,7 @@ configure do
   # Routing
   map '/', 'welcome'
   map '/account', 'account'
+  map '/posts', 'posts'
 
   # Application loading order
   set :app_files, %w|
