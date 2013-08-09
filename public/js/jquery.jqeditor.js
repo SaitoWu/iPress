@@ -26,6 +26,9 @@ QEDITOR_TOOLBAR_HTML = '\<div class="qeditor_toolbar"> \
   <a href="#" class="qeditor_glast" style="display:none;" onclick="return QEditor.action(this,\'insertimage\',prompt(\'Image URL\'));"><span class="glyphicon glyphicon-picture"></span></a> \
 </div>';
 
+QEDITOR_ALLOW_TAGS_ON_PASTE = "div,p,ul,ol,li,hr,br,b,strong,i,em,img,h1,h2,h3,h4,h5,h6,h7"
+QEDITOR_DISABLE_ATTRIBUTES_ON_PASTE = ["style","class","id","name","width","height"];
+
 var QEditor = {
 	action: function(e, a, p) {
     qeditor_preview = $(".qeditor_preview",$(e).parent().parent());
@@ -77,10 +80,23 @@ var QEditor = {
           preview_editor.addClass(obj.attr("class"));
 	        obj.after(preview_editor);
 	        preview_editor.change(function(){
-	          pobj = $(this);
-	          t = pobj.parent().find('.qeditor');
+	          var pobj = $(this);
+	          var t = pobj.parent().find('.qeditor');
 	          t.val(pobj.html());
 	        });
+          preview_editor.on("paste",function(){
+            var txt = $(this);
+            setTimeout(function () {
+              var els = txt.find("*");
+              for (var i = 0; i < QEDITOR_DISABLE_ATTRIBUTES_ON_PASTE.length; i ++) {
+                var attrName = QEDITOR_DISABLE_ATTRIBUTES_ON_PASTE[i];
+                els.removeAttr(attrName);
+              }
+              els.find(":not("+ QEDITOR_ALLOW_TAGS_ON_PASTE +")").replaceWith(function(){
+                $(this).html();
+              });
+            },100);
+          });
 	        preview_editor.keyup(function(){ $(this).change(); });
 	        obj.hide();
 	        obj.wrap('<div class="qeditor_border"></div>');

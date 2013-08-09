@@ -18,7 +18,6 @@ class PostsController < ApplicationController
   meta '#create'
   post '/create' do
     @post = Post.new(params[:post])
-    @post.user_id = current_user.id
     if @post.save
       success "Post created."
       redirect_to 'posts#show', @post.id

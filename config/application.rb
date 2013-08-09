@@ -6,7 +6,7 @@ configure do
 
   set :views, 'app/views'
 
-  set :session, :name, '_aaa'
+  set :session, :name, '_ipress'
 
   ## If you've configured https with nginx:
   # set :session, :secure, true
