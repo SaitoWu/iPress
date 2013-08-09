@@ -1,6 +1,13 @@
 class PostsController < ApplicationController
   meta '#index'
   get '/' do
+    @posts = Post.limit(20)
+    render "posts/index"
+  end
+  
+  meta '#recent'
+  get '/recent' do
+    @posts = Post.limit(20)
     render "posts/index"
   end
   

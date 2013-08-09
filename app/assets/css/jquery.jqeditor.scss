@@ -1,5 +1,12 @@
+.qeditor_border {
+  background:#FFF;
+  height:500px;
+  padding-bottom:20px;
+}
 .qeditor_toolbar { 
   margin-bottom:3px; 
+  background:#FFF;
+  span.vline { border-left:1px solid #bbb; padding-right:11px; }
   a {
     color:#333;
     text-decoration: none;
@@ -7,3 +14,4 @@
     margin-right:6px;
   }
 }
+.qeditor_preview { height:100%; }

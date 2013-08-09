@@ -1,1 +1,12 @@
-List
+<ul class="nav nav-pills">
+  <li><a href="<%= path_to 'posts#index' %>">Recommends</a></li>
+  <li><a href="<%= path_to 'posts#recent' %>">Recent</a></li>
+</ul>
+<% @posts.each do |post| %>
+<article class="post-item">
+  <h3 class="post-item-title"><a href="<%= path_to 'posts#show', post.id %>"><%= post.title %></a></h3>
+  <div class="post-item-meta">
+    Created at <%= post.created_at %>
+  </div>
+</article>
+<% end %>
