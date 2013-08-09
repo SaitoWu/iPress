@@ -20,7 +20,7 @@
       <div class="nav-collapse collapse bs-navbar-collapse">
         <ul class="nav navbar-nav pull-right">
           <% if current_user %>
-            <li><%= current_user.login %></li>
+            <li class="navbar-text">Hi <b><%= current_user.login %></b></li>
           <% else %>
             <li><a href="<%= path_to "account#new" %>">Register</a></li>
             <li><a href="<%= path_to "account#login" %>">Login</a></li>

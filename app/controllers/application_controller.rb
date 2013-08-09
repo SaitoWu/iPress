@@ -1,6 +1,5 @@
 class ApplicationController < Nyara::Controller
   set_default_layout 'layouts/application'
-  # helper_method :current_user
   
   def current_user
     @current_user ||= User.where(:_id => session[:user_id]).first
