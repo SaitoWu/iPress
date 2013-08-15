@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   
   meta '#index'
   get '/' do
-    @posts = Post.limit(20)
+    @posts = Post.limit(20).includes(:user)
     render "posts/index"
   end
   

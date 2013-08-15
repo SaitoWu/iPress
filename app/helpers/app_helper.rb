@@ -5,6 +5,6 @@ module AppHelper
   
   def user_name_tag(user)
     return '' if user.blank?
-    # %(<a href="#{path_to 'users#show', user.login}">#{user.login}</a>)
+    %(<a href="">#{user.login}</a>)
   end
 end
