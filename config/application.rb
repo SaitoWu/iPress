@@ -6,6 +6,8 @@ configure do
 
   set :views, 'app/views'
 
+  set :assets, 'app/assets'
+
   set :session, :name, '_ipress'
 
   ## If you've configured https with nginx:
@@ -34,19 +36,8 @@ configure do
   require_relative env
 end
 
-
-
 # Configure Mongoid
 Mongoid.load!(Nyara.config.project_path('config/database.yml'), Nyara.config.env)
 
-if Nyara.development?
-  Thread.new do
-    `bundle exec sass --scss --watch app/assets/css:public/css --cache-location tmp/cache/sass`
-  end
-
-  Thread.new do
-    `bundle exec coffee -w -b -c -o public/js app/assets/js`
-  end
-end
-
 Nyara.load_app
+
