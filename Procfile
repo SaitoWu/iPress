@@ -1,1 +1,1 @@
-web: NYARA_ENV=production bundle exec nyara s
+web: bundle exec nyara s
