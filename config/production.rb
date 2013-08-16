@@ -15,7 +15,7 @@ puts opts[:port]
 configure do
   set :port, opts[:port]
   ## worker number can be detected by CPU count
-  set :workers, 4
+  set :workers, 1
   set :logger, false
 
   # todo after_fork
