@@ -40,7 +40,7 @@ class AccountController < ApplicationController
     if @user.is_valid_password?(params[:password])
       save_login(@user)
       success "Login successed."
-      redirect_to "welcome#index"
+      redirect_to "users#index"
     else
       render "account/login"
     end
@@ -49,6 +49,6 @@ class AccountController < ApplicationController
   meta '#logout'
   post '/logout' do
     clear_login
-    redirect_to 'welcome#index'
+    redirect_to 'users#index'
   end
 end

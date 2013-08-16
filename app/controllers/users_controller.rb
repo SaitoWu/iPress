@@ -7,7 +7,6 @@ class UsersController < ApplicationController
   meta '#show'
   get '/%s' do |login|
     @user = User.where(login: login).first
-    @posts = @user.posts.limit(20)
     if @user.blank?
       render_404
     end
