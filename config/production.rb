@@ -1,14 +1,16 @@
 require 'optparse'
-args ||= []
+args = ARGV.dup || []
 opts = {
   port: 3000
 }
 OptionParser.new do |opt|
   opt.banner = 'Usage'
-  opt.on('-p', 'Start port') do |value|
+  opt.on('-p [port]', 'Start port') do |value|
     opts[:port] = value
   end
 end.parse(args)
+
+puts opts[:port]
 
 configure do
   set :port, opts[:port]
