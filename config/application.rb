@@ -20,9 +20,8 @@ configure do
   set 'session', 'key', File.read(project_path 'config/session.key')
 
   # Routing
-  map '/', 'welcome'
+  map '/', 'users'
   map '/account', 'account'
-  map '/users', 'users'
   map '/posts', 'posts'
   
 

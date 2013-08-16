@@ -1,16 +1,17 @@
 class UsersController < ApplicationController
   meta '#index'
   get '/' do
-    render "users/index"
+    render 'users/index'
   end
   
-  # 下面的启用就会导致 /posts/:id 无法访问
-  # meta '#show'
-  # get '/%s' do |login|
-  #   @user = User.where(login: login).first
-  #   if @user.blank?
-  #     render_404
-  #   end
-  #   render "users/show"
-  # end
+  meta '#show'
+  get '/%s' do |login|
+    @user = User.where(login: login).first
+    @posts = @user.posts.limit(20)
+    if @user.blank?
+      render_404
+    end
+    render "posts/index"
+  end
+  
 end

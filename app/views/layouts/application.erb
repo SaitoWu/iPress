@@ -40,7 +40,7 @@
         <ul class="nav navbar-nav pull-right">
           <% if current_user %>
             <li class="navbar-text">    
-              Hi <b><%= current_user.login %></b> 
+              Hi <b><%== user_name_tag(current_user) %></b> 
             </li>
             <li><a href="<%= path_to 'account#logout' %>" data-method="delete">Logout</a></li>
           <% else %>
