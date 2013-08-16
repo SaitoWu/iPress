@@ -38,7 +38,7 @@ configure do
 end
 
 # Configure Mongoid
-Mongoid.load!(Nyara.config.project_path('config/database.yml'), Nyara.config.env)
+Mongoid.load!(Nyara.config.project_path('config/mongoid.yml'), Nyara.config.env)
 
 Nyara.load_app
 
