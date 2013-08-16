@@ -1,1 +1,1 @@
-web: bundle exec nyara s -p $PORT
+web: bundle exec ruby config/boot.rb -p $PORT
