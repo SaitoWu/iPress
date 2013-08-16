@@ -1,1 +1,1 @@
-web: bundle exec nyara s
+web: bundle exec nyara s -p $PORT
