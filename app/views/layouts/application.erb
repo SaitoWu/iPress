@@ -23,27 +23,36 @@
 <body>
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
-      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="/" class="navbar-brand">iPress</a>
-      <ul class="nav navbar-nav">
-        <li><a href="<%= path_to 'posts#index' %>">Explore</a></li>
-      </ul>
-      
-      <% if current_user %>
-      <a href="<%= path_to 'posts#new' %>" class='btn btn-success btn-sm navbar-btn'><i class="icon-edit"></i> New Post</a>
-      <% end %>
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand">iPress</a>
+      </div>
 
-      <div class="nav-collapse collapse bs-navbar-collapse">
-        <ul class="nav navbar-nav pull-right">
+      <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
+        <ul class="nav navbar-nav">
+          <li><a href="<%= path_to 'posts#index' %>">Explore</a></li>
+        </ul>
+        
+        <% if current_user %>
+        <a href="<%= path_to 'posts#new' %>" class='btn btn-success btn-sm navbar-btn'><i class="icon-edit"></i> New Post</a>
+        <% end %>
+        
+        <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
-            <li class="navbar-text">
-              Hi <b><%== user_name_tag(current_user) %></b>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.login %> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="<%= path_to 'users#show', current_user.login %>"><i class="icon-home"></i> My Profile</a>
+                <li><a href="<%= path_to 'posts#new' %>"><i class="icon-edit"></i> New Post</a>
+                <li class="divider"></li>
+                <li><a href="<%= path_to 'account#logout' %>" data-method="delete"><i class="icon-off"></i> Logout</a></li>
+              </ul>
             </li>
-            <li><a href="<%= path_to 'account#logout' %>" data-method="delete">Logout</a></li>
           <% else %>
             <li><a href="<%= path_to "account#new" %>">Register</a></li>
             <li><a href="<%= path_to "account#login" %>">Login</a></li>
