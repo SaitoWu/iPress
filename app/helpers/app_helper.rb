@@ -2,12 +2,20 @@ module AppHelper
   def timeago(time)
     %(<time class="timeago" datetime="#{time}"></time>)
   end
-  
+
+  def asset_path path
+    if Nyara.production?
+      Nyara::Config['manifest'][path]
+    else
+      path
+    end
+  end
+
   def user_name_tag(user)
     return '' if user.blank?
     %(<a href="#{path_to 'users#show', user.login}">#{user.login}</a>)
   end
-  
+
   def paginate(scope)
     page = ['<ul class="pagination">']
     total_pages = scope.total_pages

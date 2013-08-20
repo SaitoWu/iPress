@@ -3,17 +3,8 @@
 <head>
   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
   <title>iPress</title>
-  <link type="text/css" rel="stylesheet" href="/assets/bootstrap.min.css">
-  <link type="text/css" rel="stylesheet" href="/assets/bootstrap-theme.css">
-  <link type="text/css" rel="stylesheet" href="/assets/font-awesome.min.css">
-  <link type="text/css" rel="stylesheet" href="/assets/jquery.qeditor.css">
-  <link type="text/css" rel="stylesheet" href="/assets/app.css">
-  <script type="text/javascript" src="/assets/jquery.min.js"></script>
-  <script type="text/javascript" src="/assets/jquery_ujs.js"></script>
-  <script type="text/javascript" src="/assets/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/assets/jquery.qeditor.js"></script>
-  <script type="text/javascript" src="/assets/timeago.js"></script>
-  <script type="text/javascript" src="/assets/app.js"></script>
+  <link type="text/css" rel="stylesheet" href="<%= asset_path "/assets/app.css" %>">
+  <script type="text/javascript" src="<%= asset_path "/assets/app.js" %>"></script>
   <script type="text/javascript">
     $(document).ready(function(){
       $('body').timeago();
@@ -37,11 +28,11 @@
         <ul class="nav navbar-nav">
           <li><a href="<%= path_to 'posts#index' %>">Explore</a></li>
         </ul>
-        
+
         <% if current_user %>
         <a href="<%= path_to 'posts#new' %>" class='btn btn-success btn-sm navbar-btn'><i class="icon-edit"></i> New Post</a>
         <% end %>
-        
+
         <ul class="nav navbar-nav navbar-right">
           <% if current_user %>
             <li class="dropdown">
