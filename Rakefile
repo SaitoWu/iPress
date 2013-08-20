@@ -1,10 +1,21 @@
-require_relative 'config/application'
-require "nyara/task"
+require "rake"
 
-task :generate_session_key do
-  require "openssl"
-  d = OpenSSL::PKey::DSA.generate(256)
-  File.open("config/session.key","w") do |f|
-    f.write(d.to_s)
+Dir.chdir __dir__
+
+desc "print all routes"
+task :routes do
+  require_relative "config/application"
+  Nyara::Route.print_routes
+end
+
+namespace :assets do
+  desc "compile assets into public (requires linner)"
+  task :build do
+    sh 'bundle exec linner build'
+  end
+
+  desc "clean assets in public (requires linner)"
+  task :clean do
+    sh 'bundle exec linner clean'
   end
 end
