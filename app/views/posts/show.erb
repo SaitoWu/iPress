@@ -1,5 +1,8 @@
 <section class="post-page">
   <header><%= @post.title %></header>
+  <div class="post-infos">
+    <b><%== @post.user.login if !@post.user.blank? %></b> post at <%== timeago(@post.created_at) %>
+  </div>
   <div class="post-body">
     <%== @post.body %>
   </div>

@@ -33,26 +33,32 @@ body {
 }
 
 /* Post Page */
-/* line 33, app/assets/styles/app.scss */
+/* line 34, app/assets/styles/app.scss */
 .post-page header {
   font-size: 52px;
   line-height: 1;
   margin-bottom: 20px;
 }
 
-/* line 35, app/assets/styles/app.scss */
+/* line 36, app/assets/styles/app.scss */
+.post-infos {
+  color: #bbb;
+  margin-bottom: 40px;
+}
+
+/* line 41, app/assets/styles/app.scss */
 .post-page .post-body,
 .qeditor_preview {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.45;
 }
-/* line 40, app/assets/styles/app.scss */
+/* line 46, app/assets/styles/app.scss */
 .post-page .post-body p,
 .qeditor_preview p {
   margin-bottom: 31px;
 }
-/* line 44, app/assets/styles/app.scss */
+/* line 50, app/assets/styles/app.scss */
 .post-page .post-body hr,
 .qeditor_preview hr {
   display: block;
@@ -60,7 +66,7 @@ body {
   margin: 50px auto 40px auto;
   border: 1px solid #dededc;
 }
-/* line 51, app/assets/styles/app.scss */
+/* line 57, app/assets/styles/app.scss */
 .post-page .post-body pre,
 .qeditor_preview pre {
   border: 0;

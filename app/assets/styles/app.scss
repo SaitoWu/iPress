@@ -30,7 +30,13 @@ body {
 }
 
 /* Post Page */
-.post-page header { font-size: 52px;line-height: 1; margin-bottom:20px; }
+.post-page {
+  header { font-size: 52px;line-height: 1; margin-bottom:20px; }
+}
+.post-infos {
+  color:#bbb;
+  margin-bottom:40px;
+}
 .post-page .post-body ,
 .qeditor_preview {
   font-weight: 400;
