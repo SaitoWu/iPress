@@ -1,0 +1,6 @@
+<article class="post-item">
+  <h3 class="post-item-title"><a href="<%= path_to 'posts#show', post.id %>"><%= post.title %></a></h3>
+  <div class="post-item-meta text-muted">
+    Created at <%== timeago(post.created_at) %>, author <%== user_name_tag(post.user) %>
+  </div>
+</article>

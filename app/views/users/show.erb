@@ -1,0 +1,4 @@
+<% @posts.each do |post| %>
+  <%== partial 'posts/_post_line', locals: { post: post } %>
+<% end %>
+<%== paginate @posts %>

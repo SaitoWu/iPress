@@ -33,13 +33,20 @@ body {
 .post-page header { font-size: 52px;line-height: 1; margin-bottom:20px; }
 .post-page .post-body ,
 .qeditor_preview {
-  line-height:180%;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.45;
  
   p {
-    margin-bottom:20px;
+    margin-bottom:31px
   }
   
-  hr { width:40%; border-top:3px solid #eee; margin:20px auto; }
+  hr { 
+    display: block;
+    width: 20%;
+    margin: 50px auto 40px auto;
+    border: 1px solid #dededc;
+  }
   
   pre {
     border:0;

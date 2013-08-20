@@ -9,6 +9,10 @@ gem 'mongoid_auto_increment_id', '0.6.1'
 gem "sass"
 gem "coffee-script"
 
+group :development do
+  gem 'linner', github: "SaitoWu/linner", require: false
+end
+
 group :deploy do
   gem 'rake'
 end

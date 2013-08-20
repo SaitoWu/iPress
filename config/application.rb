@@ -4,9 +4,9 @@ Bundler.require :default, ENV['NYARA_ENV'] || 'development'
 configure do
   set :env, ENV['NYARA_ENV'] || 'development'
 
-  set :views, 'app/views'
+  set :port, ENV['NYARA_PORT']
 
-  set :assets, 'app/assets'
+  set :views, 'app/views'
 
   set :session, :name, '_ipress'
 
@@ -23,21 +23,28 @@ configure do
   map '/', 'users'
   map '/account', 'account'
   map '/posts', 'posts'
-  
-
-  # Application loading order
-  set :app_files, %w|
-    app/controllers/application_controller.rb
-    app/models/mongoid/base_model.rb
-    app/{helpers,models,controllers}/**/*.rb
-  |
 
   # Environment specific configure at last
   require_relative env
+  
+  # invoked after forking a worker
+  set :after_fork, ->{
+    Mongoid.load! Nyara.project_path('config/mongoid.yml'), Nyara.env
+  }
 end
 
-# Configure Mongoid
-Mongoid.load!(Nyara.config.project_path('config/mongoid.yml'), Nyara.config.env)
+# load app
+Dir.glob %w|
+  lib/**/*.rb
+  app/controllers/application_controller.rb
+  app/models/mongoid/base_model.rb
+  app/{helpers,models,controllers}/**/*.rb
+| do |file|
+  require_relative "../#{file}"
+end
 
-Nyara.load_app
+# compile routes and finish misc setup stuffs
+Nyara.setup
 
+# connect db in interactive shell
+Nyara.config[:after_fork].call if ENV['NYARA_SHELL']

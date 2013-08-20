@@ -3,14 +3,15 @@ class UsersController < ApplicationController
   get '/' do
     render 'users/index'
   end
-  
+
   meta '#show'
   get '/%s' do |login|
     @user = User.where(login: login).first
     if @user.blank?
       render_404
     end
-    render "posts/index"
+    @posts = @user.posts.paginate(page: params[:page])
+    render "users/show"
   end
-  
+
 end
